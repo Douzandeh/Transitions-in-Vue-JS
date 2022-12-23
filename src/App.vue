@@ -7,7 +7,7 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view v-slot="{ Component }">
-      <transition name="fade">
+      <transition name="fade" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
@@ -70,5 +70,15 @@ img {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1.5rem;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out;
 }
 </style>
